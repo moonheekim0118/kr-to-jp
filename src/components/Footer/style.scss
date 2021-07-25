@@ -1,20 +1,12 @@
 @use "../../globalStyle/variables" as v;
 @use "../../globalStyle/mixins" as m;
 
-header {
+footer {
   @include m.center;
 
-  .title {
+  a {
     color: v.$pirmary;
-    font-family: v.$font-special;
-  }
-
-  .description {
-    font-size: v.$text-md;
     font-weight: bold;
-  }
-
-  .detail {
-    font-size: v.$text-sm;
+    text-decoration: none;
   }
 }

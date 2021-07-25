@@ -1,0 +1,7 @@
+@use "./variables" as v;
+
+@mixin center {
+  width: 100%;
+  text-align: center;
+  padding: v.$space-lg;
+}

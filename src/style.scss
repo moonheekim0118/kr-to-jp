@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
+@import "./globalStyle/variables";
 
 * {
   position: relative;
@@ -8,11 +10,12 @@
   html {
     height: 100%;
     overflow-x: hidden;
-    font-family: "Noto Sans KR", sans-serif;
+    font-family: $font-base;
   }
 
   .layout {
     display: grid;
-    place-items: center;
+    height: 100%;
+    grid-template-rows: auto 1fr auto;
   }
 }
