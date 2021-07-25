@@ -1,9 +1,12 @@
 import React, { Component, ReactElement } from "react";
+import Header from "components/Header";
 
-class App extends Component {
-  render(): ReactElement {
-    return <div className="py-12 bg-white"></div>;
-  }
+function App() {
+  return (
+    <div className="layout">
+      <Header />
+    </div>
+  );
 }
 
 export default App;
