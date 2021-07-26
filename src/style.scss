@@ -1,6 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
+@import "./globalStyle/mixins";
 @import "./globalStyle/variables";
+
+:root {
+  --color: black;
+  --card-bg: #fff;
+  --bg: #fff;
+  --shadow: 3px 3px 8px -5px rgba(0, 0, 0, 0.86);
+}
+
+[data-theme="dark"] {
+  --color: #c1bfbd;
+  --card-bg: #1f1b24;
+  --bg: #333;
+  --shadow: 3px 5px 9px -5px rgba(139, 213, 246, 0.87);
+}
 
 * {
   position: relative;
@@ -17,5 +32,7 @@
     display: grid;
     height: 100%;
     grid-template-rows: auto 1fr auto;
+    background-color: var(--bg);
+    color: var(--color);
   }
 }
