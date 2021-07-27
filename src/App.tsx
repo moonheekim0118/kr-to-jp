@@ -1,11 +1,13 @@
 import React from "react";
-import { Header, Footer } from "@components/index";
+import { Header, Footer, TextArea } from "@components/index";
 
 function App() {
   return (
     <div className="layout">
       <Header />
-      <main>음</main>
+      <main>
+        <TextArea />
+      </main>
       <Footer />
     </div>
   );

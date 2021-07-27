@@ -1,0 +1,21 @@
+@use "../../globalStyle/variables" as v;
+@use "../../globalStyle/mixins" as m;
+
+// TODO: 미디어쿼리 추가
+textarea {
+  font-family: inherit;
+  background: var(--card-bg);
+  color: var(--card-color);
+  width: 500px;
+  height: 150px;
+  resize: none;
+  border-radius: 20px;
+  border: none;
+  box-shadow: var(--shadow);
+
+  padding: v.$space-lg;
+
+  &:focus {
+    outline: 0;
+  }
+}

@@ -5,14 +5,16 @@
 
 :root {
   --color: black;
-  --card-bg: #fff;
+  --card-color: black;
+  --card-bg: #f4f6f7;
   --bg: #fff;
   --shadow: 3px 3px 8px -5px rgba(0, 0, 0, 0.86);
 }
 
 [data-theme="dark"] {
   --color: #c1bfbd;
-  --card-bg: #1f1b24;
+  --card-color: #fff;
+  --card-bg: #4d5656;
   --bg: #333;
   --shadow: 3px 5px 9px -5px rgba(139, 213, 246, 0.87);
 }
@@ -34,5 +36,8 @@
     grid-template-rows: auto 1fr auto;
     background-color: var(--bg);
     color: var(--color);
+    main {
+      @include center;
+    }
   }
 }
