@@ -147,8 +147,8 @@ function parseHangule(word: string): string[] {
   const firstHiragana = nucleus
     ? hiraganaTable[mergeHangule(onset, nucleus)]
     : hiraganaTable[onset];
-  const secondHiagana = hiraganaTable[syllable] ?? "";
-  return [firstHiragana, secondHiagana];
+  const secondHiragana = hiraganaTable[syllable] ?? "";
+  return [firstHiragana, secondHiragana];
 }
 
 export default parseHangule;
