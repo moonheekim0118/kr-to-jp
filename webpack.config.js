@@ -13,6 +13,7 @@ module.exports = {
       "@constants": path.join(__dirname, "src/constants"),
       "@hooks": path.join(__dirname, "src/hooks"),
       "@utils": path.join(__dirname, "src/utils"),
+      "@assets": path.join(__dirname, "src/assets"),
     },
     modules: [path.join(__dirname, "src"), "node_modules"],
     extensions: [".js", ".ts", ".tsx", ".json"],

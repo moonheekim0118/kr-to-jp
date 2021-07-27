@@ -12,6 +12,7 @@ function TextArea() {
   return (
     <textarea
       name="korean-textarea"
+      className="korean-textarea"
       placeholder="예시) 아리가또고자이마스"
       value={text}
       onChange={handleChange}
