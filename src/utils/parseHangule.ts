@@ -106,7 +106,7 @@ const CONSONANTS_UNICODE_START = 12623;
 const CONSONANTS_UNICODE = 588;
 const VOWELS_UNICODE = 28;
 
-function splitHanglue(word: string): string[] {
+function splitHangule(word: string): string[] {
   const unicodeOfWord = word.charCodeAt(0);
   if (
     unicodeOfWord < HANGULE_UNICODE_START ||
@@ -143,7 +143,7 @@ function mergeHangule(onset: string, nucleus: string): string {
 }
 
 function parseHangule(word: string): string[] {
-  const [onset, nucleus, syllable] = splitHanglue(word);
+  const [onset, nucleus, syllable] = splitHangule(word);
   const firstHiragana = nucleus
     ? hiraganaTable[mergeHangule(onset, nucleus)]
     : hiraganaTable[onset];
