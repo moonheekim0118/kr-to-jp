@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import useWebStorage from "hooks/useWebStorage";
-import { ColorTheme, StorageKind, COLOR_THEME_KEY } from "constants/index";
+import useWebStorage from "@hooks/useWebStorage";
+import { ColorTheme, StorageKind, COLOR_THEME_KEY } from "@constants/index";
 import "./style.scss";
 
 function ThemeToggler() {

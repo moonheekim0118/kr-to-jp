@@ -1,5 +1,5 @@
 import React from "react";
-import ThemeToggler from "components/ThemeToggler";
+import ThemeToggler from "@components/ThemeToggler";
 import "./style.scss";
 
 function Header() {

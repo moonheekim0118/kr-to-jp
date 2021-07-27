@@ -9,7 +9,10 @@ module.exports = {
   },
   resolve: {
     alias: {
-      "@": path.join(__dirname, "src"),
+      "@components": path.join(__dirname, "src/components"),
+      "@constants": path.join(__dirname, "src/constants"),
+      "@hooks": path.join(__dirname, "src/hooks"),
+      "@utils": path.join(__dirname, "src/utils"),
     },
     modules: [path.join(__dirname, "src"), "node_modules"],
     extensions: [".js", ".ts", ".tsx", ".json"],

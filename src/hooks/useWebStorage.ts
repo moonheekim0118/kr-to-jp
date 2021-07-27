@@ -1,4 +1,4 @@
-import { StorageKind } from "constants/index";
+import { StorageKind } from "@constants/index";
 
 interface Props {
   key: string;
