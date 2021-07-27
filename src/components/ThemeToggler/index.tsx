@@ -29,15 +29,15 @@ function ThemeToggler() {
   }
 
   return (
-    <div className="container">
+    <label className="switch">
       <input
         type="checkbox"
         onChange={handleToggleTheme}
         checked={currentTheme === ColorTheme.DARK}
         name="theme-switch"
-        className="theme-switch-input"
       />
-    </div>
+      <div className="slider round" />
+    </label>
   );
 }
 

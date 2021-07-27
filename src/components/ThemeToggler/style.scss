@@ -1,0 +1,51 @@
+@use "../../globalStyle/variables" as v;
+
+.switch {
+  display: inline-block;
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  height: 34px;
+  width: 60px;
+  z-index: 10;
+
+  input {
+    display: none;
+    &:checked + .slider {
+      background-color: v.$pirmary;
+    }
+
+    &:checked + .slider::before {
+      transform: translateX(26px);
+    }
+  }
+
+  .slider {
+    position: absolute;
+    background: v.$gray;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    transition: v.$transition-primary;
+
+    &::before {
+      position: absolute;
+      content: "";
+      background-color: v.$white;
+      width: 26px;
+      bottom: 4px;
+      height: 26px;
+      left: 4px;
+      transition: v.$transition-primary;
+    }
+  }
+
+  .slider.round {
+    border-radius: 34px;
+    &::before {
+      border-radius: 50%;
+    }
+  }
+}

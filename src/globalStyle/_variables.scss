@@ -4,6 +4,8 @@ $font-special: "Do Hyeon", sans-serif;
 $pirmary: #00cc88;
 $accent: #0099ff;
 $warn: #ff0000;
+$gray: #ccc;
+$white: #fff;
 
 $text-base-size: 1em;
 $text-xs: 0.8em;
@@ -25,3 +27,5 @@ $space-xl: calc(3.25 * 1em);
 $space-xxl: calc(5.25 * 1em);
 $space-xxxl: calc(8.5 * 1em);
 $space-xxxxl: calc(13.75 * 1em);
+
+$transition-primary: 0.4s;
