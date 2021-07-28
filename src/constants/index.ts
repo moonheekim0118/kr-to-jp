@@ -9,3 +9,7 @@ export enum StorageKind {
   LOCAL = "local",
   SESSION = "session",
 }
+
+export const MAX_TEXT = 1000;
+export const MIN_TEXT = 1;
+export const CONVERT_DELAY = 900;

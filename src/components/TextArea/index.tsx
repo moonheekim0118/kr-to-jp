@@ -1,20 +1,18 @@
-import React, { useState } from "react";
-import useWebStorage from "@hooks/useWebStorage";
+import React from "react";
 import "./style.scss";
 
-function TextArea() {
-  const [text, setText] = useState("");
+interface Props {
+  value: string;
+  handleChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+}
 
-  function handleChange(e: React.ChangeEvent<HTMLTextAreaElement>): void {
-    setText(e.target.value);
-  }
-
+function TextArea({ value, handleChange }: Props) {
   return (
     <textarea
       name="korean-textarea"
       className="korean-textarea"
       placeholder="예시) 아리가또고자이마스"
-      value={text}
+      value={value}
       onChange={handleChange}
     />
   );
