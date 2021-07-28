@@ -1,0 +1,10 @@
+.converter-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  .process {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,2 +1,2 @@
-export { default as convertHangule } from "./convertHangule";
+export { default as convertHangule } from "./convertHangul";
 export { default as debounce } from "./debounce";

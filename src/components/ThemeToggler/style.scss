@@ -12,7 +12,7 @@
   input {
     display: none;
     &:checked + .slider {
-      background-color: v.$pirmary;
+      background-color: v.$primary;
     }
 
     &:checked + .slider::before {

@@ -99,8 +99,8 @@ const KOREAN_SYLLABLE = [
   "ㅎ",
 ];
 
-const HANGULE_UNICODE_START = 44032;
-const HANGULE_UNICODE_END = 55203;
+const HANGUL_UNICODE_START = 44032;
+const HANGUL_UNICODE_END = 55203;
 const CONSONANTS_UNICODE_START = 12623;
 
 const CONSONANTS_UNICODE = 588;
@@ -109,12 +109,12 @@ const VOWELS_UNICODE = 28;
 function splitHangule(word: string): string[] {
   const unicodeOfWord = word.charCodeAt(0);
   if (
-    unicodeOfWord < HANGULE_UNICODE_START ||
-    unicodeOfWord > HANGULE_UNICODE_END
+    unicodeOfWord < HANGUL_UNICODE_START ||
+    unicodeOfWord > HANGUL_UNICODE_END
   )
     return [word];
 
-  const size = unicodeOfWord - HANGULE_UNICODE_START;
+  const size = unicodeOfWord - HANGUL_UNICODE_START;
 
   const onsetIndex = Math.floor(size / CONSONANTS_UNICODE);
   const nucleusIndex = Math.floor(
@@ -136,7 +136,7 @@ function mergeHangule(onset: string, nucleus: string): string {
   const nucleusIndex = nucleusUnicode - CONSONANTS_UNICODE_START;
 
   return String.fromCharCode(
-    HANGULE_UNICODE_START +
+    HANGUL_UNICODE_START +
       onsetIndex * CONSONANTS_UNICODE +
       nucleusIndex * VOWELS_UNICODE
   );

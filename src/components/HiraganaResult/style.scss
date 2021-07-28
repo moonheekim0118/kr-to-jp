@@ -1,0 +1,10 @@
+@use "../../globalStyle/variables" as v;
+
+.hiragana-container {
+  width: 500px;
+  padding: v.$space-lg;
+
+  .title {
+    color: v.$primary;
+  }
+}

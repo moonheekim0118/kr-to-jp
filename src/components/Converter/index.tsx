@@ -3,6 +3,7 @@ import useWebStorage from "@hooks/useWebStorage";
 import { convertHangule, debounce } from "@utils/index";
 import { TextArea, HiraganaResult } from "@components/index";
 import { MIN_TEXT, MAX_TEXT, CONVERT_DELAY } from "@constants/index";
+import "./style.scss";
 
 function Converter() {
   const [hangul, setHangul] = useState("");
@@ -28,16 +29,13 @@ function Converter() {
   }
 
   return (
-    <section className="container">
-      <TextArea value={hangul} handleChange={handleChange} />
-      <HiraganaResult hiragana={hiragana} />
+    <section className="converter-container">
+      <div className="process">
+        <TextArea value={hangul} handleChange={handleChange} />
+        <HiraganaResult hiragana={hiragana} />
+      </div>
     </section>
   );
 }
 
-//debounce(()=> convertHangule(newValue), DEBOUNCE_TIMEOUT)();
-
 export default Converter;
-
-// 이 컴포넌트에서 text change를 관리하고,
-// props로 Textarea, HiraganaResult , TranslateResult 에 내려준다.
