@@ -6,6 +6,12 @@
   padding: v.$space-lg;
 }
 
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 @mixin card {
   background: var(--card-bg);
   color: var(--card-color);
@@ -14,4 +20,14 @@
   box-shadow: var(--shadow);
   border-radius: 20px;
   padding: v.$space-lg;
+
+  @include tablet {
+    width: 80%;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{v.$breakpoint-desktop + 1px}) {
+    @content;
+  }
 }

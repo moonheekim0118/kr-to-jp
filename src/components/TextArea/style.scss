@@ -1,8 +1,8 @@
 @use "../../globalStyle/variables" as v;
 @use "../../globalStyle/mixins" as m;
 
-// TODO: 미디어쿼리 추가
 .textarea-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,6 +13,7 @@
     color: v.$primary;
     padding-bottom: v.$space-md;
   }
+
   .korean-textarea {
     @include m.card;
     font-family: inherit;

@@ -1,11 +1,15 @@
+@use "../../globalStyle/mixins" as m;
+
 .converter-container {
   display: flex;
   justify-content: space-evenly;
 
-  width: 100%;
   .process {
-    display: flex;
+    width: 100%;
+    @include m.flex-column;
+  }
+
+  @include m.tablet {
     flex-direction: column;
-    align-items: center;
   }
 }

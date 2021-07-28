@@ -2,6 +2,8 @@
 @use "../../globalStyle/mixins" as m;
 
 .result-container {
+  width: 100%;
+  @include m.flex-column;
   .title {
     color: v.$primary;
     padding-bottom: v.$space-md;

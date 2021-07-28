@@ -1,8 +1,10 @@
 @use "../../globalStyle/variables" as v;
+@use "../../globalStyle/mixins" as m;
 
 .hiragana-container {
-  width: 500px;
-  padding: v.$space-lg;
+  width: 100%;
+  padding: v.$space-md 0;
+  @include m.flex-column;
 
   .title {
     color: v.$primary;

@@ -2,7 +2,8 @@
 @use "../../globalStyle/mixins" as m;
 
 footer {
-  @include m.center;
+  width: 100%;
+  text-align: center;
 
   a {
     color: v.$primary;
