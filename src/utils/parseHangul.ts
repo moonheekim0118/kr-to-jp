@@ -1,6 +1,6 @@
 import hiraganaTable from "@assets/hiraganaTable";
 
-const KOREAN_ONSET = [
+const HANGUL_ONSET = [
   "ㄱ",
   "ㄲ",
   "ㄴ",
@@ -22,7 +22,7 @@ const KOREAN_ONSET = [
   "ㅎ",
 ];
 
-const KOREAN_ONSET_CONNECTOR = {
+const HANGUL_ONSET_CONNECTOR = {
   ㄱ: 0,
   ㄲ: 1,
   ㄴ: 2,
@@ -44,7 +44,7 @@ const KOREAN_ONSET_CONNECTOR = {
   ㅎ: 18,
 };
 
-const KOREAN_NUCLEUS = [
+const HANGUL_NUCLEUS = [
   "ㅏ",
   "ㅐ",
   "ㅑ",
@@ -68,7 +68,7 @@ const KOREAN_NUCLEUS = [
   "ㅣ",
 ];
 
-const KOREAN_SYLLABLE = [
+const HANGUL_SYLLABLE = [
   "",
   "ㄱ",
   "ㄲ",
@@ -123,16 +123,16 @@ function splitHangule(word: string): string[] {
   const syllableIndex = Math.floor(size % VOWELS_UNICODE);
 
   return [
-    KOREAN_ONSET[onsetIndex],
-    KOREAN_NUCLEUS[nucleusIndex],
-    KOREAN_SYLLABLE[syllableIndex],
+    HANGUL_ONSET[onsetIndex],
+    HANGUL_NUCLEUS[nucleusIndex],
+    HANGUL_SYLLABLE[syllableIndex],
   ];
 }
 
 function mergeHangule(onset: string, nucleus: string): string {
   const nucleusUnicode = nucleus.charCodeAt(0);
 
-  const onsetIndex = KOREAN_ONSET_CONNECTOR[onset];
+  const onsetIndex = HANGUL_ONSET_CONNECTOR[onset];
   const nucleusIndex = nucleusUnicode - CONSONANTS_UNICODE_START;
 
   return String.fromCharCode(
