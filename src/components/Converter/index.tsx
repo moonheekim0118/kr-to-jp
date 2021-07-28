@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useWebStorage from "@hooks/useWebStorage";
 import { convertHangule, debounce } from "@utils/index";
-import { TextArea, HiraganaResult } from "@components/index";
+import { TextArea, HiraganaResult, TranslatedResult } from "@components/index";
 import { MIN_TEXT, MAX_TEXT, CONVERT_DELAY } from "@constants/index";
 import "./style.scss";
 
@@ -34,6 +34,7 @@ function Converter() {
         <TextArea value={hangul} handleChange={handleChange} />
         <HiraganaResult hiragana={hiragana} />
       </div>
+      <TranslatedResult text="희진언니 나랑 결혼해" />
     </section>
   );
 }

@@ -1,0 +1,13 @@
+@use "../../globalStyle/variables" as v;
+@use "../../globalStyle/mixins" as m;
+
+.result-container {
+  .title {
+    color: v.$primary;
+    padding-bottom: v.$space-md;
+  }
+
+  .result-card {
+    @include m.card;
+  }
+}

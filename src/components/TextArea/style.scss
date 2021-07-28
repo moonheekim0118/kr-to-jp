@@ -14,17 +14,10 @@
     padding-bottom: v.$space-md;
   }
   .korean-textarea {
+    @include m.card;
     font-family: inherit;
-    background: var(--card-bg);
-    color: var(--card-color);
-    width: 500px;
-    height: 150px;
     resize: none;
-    border-radius: 20px;
     border: none;
-    box-shadow: var(--shadow);
-
-    padding: v.$space-lg;
 
     &:focus {
       outline: 0;

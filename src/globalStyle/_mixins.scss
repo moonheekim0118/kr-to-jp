@@ -5,3 +5,13 @@
   text-align: center;
   padding: v.$space-lg;
 }
+
+@mixin card {
+  background: var(--card-bg);
+  color: var(--card-color);
+  width: 500px;
+  height: 150px;
+  box-shadow: var(--shadow);
+  border-radius: 20px;
+  padding: v.$space-lg;
+}
