@@ -1,10 +1,11 @@
 const path = require("path");
+const Dotenv = require("dotenv-webpack");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   output: {
-    path: path.resolve(__dirname, "public"),
+    path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
   },
   resolve: {
@@ -35,6 +36,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new Dotenv({ systemvars: true, silent: true, defaults: false }),
     new HtmlWebPackPlugin({
       template: "./public/index.html",
     }),
