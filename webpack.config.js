@@ -4,9 +4,11 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
+  target: "web",
+  entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "public"),
-    filename: "bundle.js",
+    filename: "app.js",
   },
   resolve: {
     alias: {
@@ -22,11 +24,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/,
+        test: /\.(ts|tsx|js)$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        },
+        loader: "babel-loader",
       },
       {
         test: /(\.scss$)/,
