@@ -18,7 +18,7 @@ function Converter() {
   }, [hangul]);
 
   function handleChange(e: React.ChangeEvent<HTMLTextAreaElement>): void {
-    const newHangul = e.target.value;
+    const newHangul = e.target.value.trim();
     if (newHangul.length > MAX_TEXT) setError(true);
     else {
       setError(false);
@@ -28,6 +28,7 @@ function Converter() {
 
   function handleConvert() {
     const hiragana = convertHangule(hangul);
+    if (hiragana.length === 0) return;
     request(hiragana)
       .then((result) => {
         setHiragana(hiragana);
