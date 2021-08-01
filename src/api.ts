@@ -9,7 +9,7 @@ async function request(query: string) {
   const timer = setTimeout(() => abort(), TIMEOUT);
   const response = await fetch(`${URL}/${query}`, { signal });
   if (!response.ok) {
-    throw new Error("에러");
+    throw new Error("서버에 에러가 발생했습니다.");
   }
   const data = await response.json();
   clearTimeout(timer);

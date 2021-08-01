@@ -24,4 +24,10 @@
       outline: 0;
     }
   }
+
+  .error {
+    font-size: v.$text-sm;
+    margin-top: v.$space-md;
+    color: red;
+  }
 }

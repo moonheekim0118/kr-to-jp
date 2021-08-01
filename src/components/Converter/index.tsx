@@ -13,6 +13,7 @@ function Converter() {
   const [error, setError] = useState(false);
 
   useEffect(() => {
+    if (hangul.length === 0) return;
     debounce(() => handleConvert(), CONVERT_DELAY)();
   }, [hangul]);
 
@@ -33,14 +34,14 @@ function Converter() {
         setTranslatedResult(result);
       })
       .catch((error) => {
-        setError(error);
+        setTranslatedResult(error.message);
       });
   }
 
   return (
     <section className="converter-container">
       <div className="process">
-        <TextArea value={hangul} handleChange={handleChange} />
+        <TextArea value={hangul} error={error} handleChange={handleChange} />
         <HiraganaResult hiragana={hiragana} />
       </div>
       <TranslatedResult text={translatedResult} />
