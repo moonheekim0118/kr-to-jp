@@ -1,4 +1,4 @@
-const URL = "https://hanbon.herokuapp.com/translate";
+const URL = process.env.API_URL;
 const TIMEOUT = 8000;
 const { signal, abort } = new AbortController();
 
