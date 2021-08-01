@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import useWebStorage from "@hooks/useWebStorage";
 import { convertHangule, debounce } from "@utils/index";
 import { TextArea, HiraganaResult, TranslatedResult } from "@components/index";
-import { MIN_TEXT, MAX_TEXT, CONVERT_DELAY } from "@constants/index";
+import { MAX_TEXT, CONVERT_DELAY } from "@constants/index";
+import request from "../../api";
 import "./style.scss";
 
 function Converter() {
   const [hangul, setHangul] = useState("");
   const [hiragana, setHiragana] = useState("");
+  const [translatedResult, setTranslatedResult] = useState("");
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -25,7 +27,14 @@ function Converter() {
 
   function handleConvert() {
     const hiragana = convertHangule(hangul);
-    setHiragana(hiragana);
+    request(hiragana)
+      .then((result) => {
+        setHiragana(hiragana);
+        setTranslatedResult(result);
+      })
+      .catch((error) => {
+        setError(error);
+      });
   }
 
   return (
@@ -34,7 +43,7 @@ function Converter() {
         <TextArea value={hangul} handleChange={handleChange} />
         <HiraganaResult hiragana={hiragana} />
       </div>
-      <TranslatedResult text="희진언니 나랑 결혼해" />
+      <TranslatedResult text={translatedResult} />
     </section>
   );
 }
