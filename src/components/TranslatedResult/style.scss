@@ -11,5 +11,6 @@
 
   .result-card {
     @include m.card;
+    overflow-y: auto;
   }
 }

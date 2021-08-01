@@ -5,9 +5,13 @@ footer {
   width: 100%;
   text-align: center;
   margin-top: v.$space-md;
+
   a {
-    color: v.$primary;
+    color: inherit;
     font-weight: bold;
     text-decoration: none;
+  }
+  .author {
+    color: v.$primary;
   }
 }
