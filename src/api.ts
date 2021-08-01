@@ -4,7 +4,7 @@ const { signal, abort } = new AbortController();
 
 const cache = new Map();
 
-async function request(query: string) {
+async function request(query: string): Promise<string> {
   if (cache.has(query)) return cache.get(query);
   const timer = setTimeout(() => abort(), TIMEOUT);
   const response = await fetch(`${URL}/${query}`, { signal });

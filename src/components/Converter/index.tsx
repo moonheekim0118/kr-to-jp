@@ -26,7 +26,7 @@ function Converter() {
     }
   }
 
-  function handleConvert() {
+  function handleConvert(): void {
     const hiragana = convertHangule(hangul);
     if (hiragana.length === 0) return;
     request(hiragana)
