@@ -4,7 +4,7 @@
   "description": "한본어 번역기",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cypress open",
     "dev": "webpack serve --mode=development --open --hot",
     "build": "webpack --mode=production",
     "pre-commit": "pretty-quick --staged"
@@ -33,6 +33,7 @@
     "babel-loader": "^8.2.2",
     "babel-plugin-module-resolver": "^4.1.0",
     "css-loader": "^6.2.0",
+    "cypress": "^8.1.0",
     "dotenv-webpack": "^7.0.3",
     "eslint": "^7.31.0",
     "eslint-config-airbnb": "^18.2.1",
