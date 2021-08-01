@@ -37,8 +37,10 @@ function Converter() {
 
   function handleChange(e: React.ChangeEvent<HTMLTextAreaElement>): void {
     const newHangul = e.target.value.trim();
-    if (newHangul.length > MAX_TEXT) setError(true);
-    else {
+    if (newHangul.length > MAX_TEXT) {
+      setError(true);
+      return;
+    } else {
       setError(false);
       setHangul(newHangul);
     }
@@ -56,6 +58,7 @@ function Converter() {
           hiragana,
           translatedResult: result,
         });
+        return;
       })
       .catch((error) => {
         setTranslatedResult(error.message);
