@@ -1,5 +1,4 @@
 export const COLOR_THEME_KEY = "color-theme";
-export const RESULT_CACHE_KEY = "translated-result";
 export enum ColorTheme {
   LIGHT = "light",
   DARK = "dark",

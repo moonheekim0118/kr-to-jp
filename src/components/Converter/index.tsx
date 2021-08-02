@@ -1,33 +1,14 @@
 import React, { useState, useEffect } from "react";
-import useWebStorage from "@hooks/useWebStorage";
 import { convertHangul, debounce } from "@utils/index";
-import { RESULT_CACHE_KEY, StorageKind } from "@constants/index";
 import { TextArea, HiraganaResult, TranslatedResult } from "@components/index";
 import { MAX_TEXT, CONVERT_DELAY } from "@constants/index";
 import request from "../../api";
 import "./style.scss";
 
-interface ResultCache {
-  hangul: string;
-  hiragana: string;
-  translatedResult: string;
-}
-
 function Converter() {
-  const [getCache, setCache] = useWebStorage<ResultCache>({
-    key: RESULT_CACHE_KEY,
-    kind: StorageKind.SESSION,
-  });
-  const {
-    hangul: cachedHangul = "",
-    hiragana: cachedHiragana = "",
-    translatedResult: cachedTranslatedResult = "",
-  } = getCache();
-  const [hangul, setHangul] = useState(cachedHangul);
-  const [hiragana, setHiragana] = useState(cachedHiragana);
-  const [translatedResult, setTranslatedResult] = useState(
-    cachedTranslatedResult
-  );
+  const [hangul, setHangul] = useState("");
+  const [hiragana, setHiragana] = useState("");
+  const [translatedResult, setTranslatedResult] = useState("");
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -53,11 +34,6 @@ function Converter() {
       .then((result) => {
         setHiragana(hiragana);
         setTranslatedResult(result);
-        setCache({
-          hangul,
-          hiragana,
-          translatedResult: result,
-        });
         return;
       })
       .catch((error) => {
