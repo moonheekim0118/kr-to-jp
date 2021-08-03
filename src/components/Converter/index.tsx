@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
-import { convertHangul } from "@utils/index";
+import { debounce, convertHangul } from "@utils/index";
 import { TextArea, HiraganaResult, TranslatedResult } from "@components/index";
-import { APIStatus } from "@constants/index";
+import { CONVERT_DELAY, APIStatus } from "@constants/index";
 import request from "../../api";
 import "./style.scss";
 
@@ -11,8 +11,9 @@ function Converter() {
   const [translatedResult, setTranslatedResult] = useState("");
   const [status, setStatus] = useState<APIStatus | "">("");
 
-  async function handleConvert(hangul: string = ""): Promise<void> {
+  async function handleConvert(): Promise<void> {
     try {
+      const hangul = input.current;
       if (hangul.trim().length === 0) return;
       const hiragana = convertHangul(hangul);
       if (hiragana.length === 0) return;
@@ -32,7 +33,10 @@ function Converter() {
   return (
     <section className="converter-container">
       <div className="prev-container">
-        <TextArea handleConvert={handleConvert} ref={input} />
+        <TextArea
+          handleConvert={debounce(() => handleConvert(), CONVERT_DELAY)}
+          ref={input}
+        />
         <HiraganaResult hiragana={hiragana} />
       </div>
       <TranslatedResult text={translatedResult} status={status} />

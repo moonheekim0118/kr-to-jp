@@ -4,12 +4,11 @@ import React, {
   forwardRef,
   useImperativeHandle,
 } from "react";
-import { debounce } from "@utils/index";
-import { MAX_TEXT, CONVERT_DELAY } from "@constants/index";
+import { MAX_TEXT } from "@constants/index";
 import "./style.scss";
 
 interface Props extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
-  handleConvert: (hangul: string) => void;
+  handleConvert: () => void;
 }
 
 function TextArea(props: Props, ref) {
@@ -17,7 +16,7 @@ function TextArea(props: Props, ref) {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    debounce(() => props.handleConvert(value), CONVERT_DELAY)();
+    props.handleConvert();
   }, [value]);
 
   useImperativeHandle(ref, () => value, [value]);
