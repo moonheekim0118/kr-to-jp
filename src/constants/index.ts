@@ -18,3 +18,4 @@ export enum APIStatus {
 export const MAX_TEXT = 1000;
 export const MIN_TEXT = 1;
 export const CONVERT_DELAY = 900;
+export const ERROR_MESSAGE = "잠시 후 다시 시도해주세요";
