@@ -5,3 +5,4 @@ export { default as TextArea } from "./TextArea";
 export { default as Converter } from "./Converter";
 export { default as HiraganaResult } from "./HiraganaResult";
 export { default as TranslatedResult } from "./TranslatedResult";
+export { default as Loading } from "./Loading";

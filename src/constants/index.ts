@@ -9,6 +9,12 @@ export enum StorageKind {
   SESSION = "session",
 }
 
+export enum APIStatus {
+  LOADING = "loading",
+  FAIL = "fail",
+  DONE = "done",
+}
+
 export const MAX_TEXT = 1000;
 export const MIN_TEXT = 1;
 export const CONVERT_DELAY = 900;
