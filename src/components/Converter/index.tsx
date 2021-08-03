@@ -13,13 +13,12 @@ function Converter() {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    if (hangul.length === 0) return;
     debounce(() => handleConvert(), CONVERT_DELAY)();
   }, [hangul]);
 
   function handleChange(e: React.ChangeEvent<HTMLTextAreaElement>): void {
-    const newHangul = e.target.value.trim();
-    if (newHangul.length > MAX_TEXT) {
+    const newHangul = e.target.value;
+    if (newHangul.trim().length > MAX_TEXT) {
       setError(true);
       return;
     } else {
@@ -29,6 +28,7 @@ function Converter() {
   }
 
   function handleConvert(): void {
+    if (hangul.trim().length === 0) return;
     const hiragana = convertHangul(hangul);
     if (hiragana.length === 0) return;
     setStatus(APIStatus.LOADING);
