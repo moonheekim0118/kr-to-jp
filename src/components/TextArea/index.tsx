@@ -1,13 +1,40 @@
-import React from "react";
+import React, {
+  useEffect,
+  useState,
+  forwardRef,
+  useImperativeHandle,
+} from "react";
+import { debounce } from "@utils/index";
+import { MAX_TEXT, CONVERT_DELAY } from "@constants/index";
 import "./style.scss";
 
-interface Props {
-  value: string;
-  error: boolean;
-  handleChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+interface Props extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+  handleConvert: (hangul: string) => void;
 }
 
-function TextArea({ value, error, handleChange }: Props) {
+function TextArea(props: Props, ref) {
+  const [value, setValue] = useState("");
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    debounce(() => props.handleConvert(value), CONVERT_DELAY)();
+  }, [value]);
+
+  useImperativeHandle(ref, () => value, [value]);
+
+  function handleChange({
+    target,
+  }: React.ChangeEvent<HTMLTextAreaElement>): void {
+    const value = target.value;
+    if (value.trim().length > MAX_TEXT) {
+      setError(true);
+      return;
+    } else {
+      setError(false);
+      setValue(value);
+    }
+  }
+
   return (
     <div className="textarea-container">
       <label className="title" htmlFor="korean-textarea">
@@ -25,4 +52,4 @@ function TextArea({ value, error, handleChange }: Props) {
   );
 }
 
-export default TextArea;
+export default forwardRef(TextArea);

@@ -1,33 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { convertHangul, debounce } from "@utils/index";
+import React, { useRef, useState } from "react";
+import { convertHangul } from "@utils/index";
 import { TextArea, HiraganaResult, TranslatedResult } from "@components/index";
-import { MAX_TEXT, CONVERT_DELAY, APIStatus } from "@constants/index";
+import { APIStatus } from "@constants/index";
 import request from "../../api";
 import "./style.scss";
 
 function Converter() {
-  const [hangul, setHangul] = useState("");
+  const input = useRef<string>("");
   const [hiragana, setHiragana] = useState("");
   const [translatedResult, setTranslatedResult] = useState("");
   const [status, setStatus] = useState<APIStatus | "">("");
-  const [error, setError] = useState(false);
 
-  useEffect(() => {
-    debounce(() => handleConvert(), CONVERT_DELAY)();
-  }, [hangul]);
-
-  function handleChange(e: React.ChangeEvent<HTMLTextAreaElement>): void {
-    const newHangul = e.target.value;
-    if (newHangul.trim().length > MAX_TEXT) {
-      setError(true);
-      return;
-    } else {
-      setError(false);
-      setHangul(newHangul);
-    }
-  }
-
-  async function handleConvert(): Promise<void> {
+  async function handleConvert(hangul: string = ""): Promise<void> {
     try {
       if (hangul.trim().length === 0) return;
       const hiragana = convertHangul(hangul);
@@ -48,7 +32,7 @@ function Converter() {
   return (
     <section className="converter-container">
       <div className="prev-container">
-        <TextArea value={hangul} error={error} handleChange={handleChange} />
+        <TextArea handleConvert={handleConvert} ref={input} />
         <HiraganaResult hiragana={hiragana} />
       </div>
       <TranslatedResult text={translatedResult} status={status} />
