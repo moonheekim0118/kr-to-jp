@@ -27,22 +27,22 @@ function Converter() {
     }
   }
 
-  function handleConvert(): void {
-    if (hangul.trim().length === 0) return;
-    const hiragana = convertHangul(hangul);
-    if (hiragana.length === 0) return;
-    setStatus(APIStatus.LOADING);
-    request(hiragana)
-      .then((result) => {
-        setHiragana(hiragana);
-        setTranslatedResult(result);
-        setStatus(APIStatus.DONE);
-        return;
-      })
-      .catch((error) => {
-        setStatus(APIStatus.FAIL);
-        setTranslatedResult(error.message);
-      });
+  async function handleConvert(): Promise<void> {
+    try {
+      if (hangul.trim().length === 0) return;
+      const hiragana = convertHangul(hangul);
+      if (hiragana.length === 0) return;
+
+      setStatus(APIStatus.LOADING);
+      setHiragana(hiragana);
+      const result = await request(hiragana);
+      setTranslatedResult(result);
+      setStatus(APIStatus.DONE);
+      return;
+    } catch (error) {
+      setStatus(APIStatus.FAIL);
+      setTranslatedResult(error.message);
+    }
   }
 
   return (
