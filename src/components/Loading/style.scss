@@ -1,3 +1,5 @@
+@use "../../globalStyle/variables" as v;
+
 @keyframes load-animation {
   0% {
     transform: rotate(0deg);
@@ -18,8 +20,8 @@
     height: 40px;
     margin: 8px;
     border-radius: 50%;
-    border: 6px solid #fff;
-    border-color: #fff transparent #fff transparent;
+    border: 6px solid v.$primary;
+    border-color: v.$primary transparent v.$primary transparent;
     animation: load-animation 1.2s linear infinite;
   }
 }
