@@ -1,12 +1,13 @@
 const URL = process.env.API_URL;
 const TIMEOUT = 8000;
-const { signal, abort } = new AbortController();
+const controller = new AbortController();
+const signal = controller.signal;
 
 const cache = new Map();
 
 async function request(query: string): Promise<string> {
   if (cache.has(query)) return cache.get(query);
-  const timer = setTimeout(() => abort(), TIMEOUT);
+  const timer = setTimeout(() => controller.abort(), TIMEOUT);
   const response = await fetch(`${URL}/${query}`, { signal });
   if (!response.ok) {
     throw new Error("서버에 에러가 발생했습니다.");
